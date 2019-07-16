@@ -13,3 +13,15 @@ fi
 if [ $1 == 3 ];then
 	youtube-dl -F "$3"
 fi
+youtube-dl --get-id $3 >>id.txt
+n=1
+for i in id.txt
+do
+m+=1
+done
+while $n<=$m
+do
+id=${cat id.txt | sed -n ${n}p}
+youtube-dl -o "/home/%(title)s.%(ext)s" -f $2 $id
+n=n+1
+done
