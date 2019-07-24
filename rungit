@@ -1,5 +1,13 @@
 #!/bin/bash
-cd ~/github/some-scripts
-git add *
-git commit -m "已上传！"
-git push
+read -p "【1】上传【2】下载：" n
+if [ $n == 1 ];then
+  cd ~/some-scripts
+  git add *
+  git commit -m "Added Files"
+  git push
+elif [ $n == 2 ];then
+  cd ~
+  git clone git@github.com:EequMCC/some-scripts.git
+else
+  echo "无此选项!"
+fi
