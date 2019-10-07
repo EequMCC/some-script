@@ -26,16 +26,16 @@ fun5(){
 }
 echo "[1]Upgrade [2]ShadowsocksR [3]V2ray [4]Youtube-dl"
 read -p "Please Select(Default All):" a
-if [ *1* == $a ];then
+if [ "$a" == "*1*" ];then
   fun1
 fi
-if [ *2* == $a ];then
+if [ "$a" == "*2*" ];then
   fun2
 fi
-if [ *3* == $a ];then
+if [ "$a" == "*3*" ];then
   fun3
 fi
-if [ *4* == $a ];then
+if [ "$a" == "*4*" ];then
   fun4
 fi
 if [ -z $a ];then
