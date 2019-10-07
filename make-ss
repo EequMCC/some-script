@@ -1,5 +1,7 @@
 #!/bin/bash
 fun1(){
+  echo "export LC_ALL=en_US.UTF-8">>/etc/profile
+  source /etc/profile
   apt-get update
   apt-get upgrade
 }
@@ -22,21 +24,21 @@ fun5(){
   echo "auto ens3" >>/etc/network/interfaces
   /etc/init.d/networking restart
 }
-echo "[1]Upgrade [2]ShadowsocksR [3]V2ray [4]Youtube-dl [5]All"
-read -p "Please Select(All default):" a
-if [ $a == 1 ];then
+echo "[1]Upgrade [2]ShadowsocksR [3]V2ray [4]Youtube-dl"
+read -p "Please Select(Default All):" a
+if [ *1* == $a ];then
   fun1
 fi
-if [ $a == 2 ];then
+if [ *2* == $a ];then
   fun2
 fi
-if [ $a == 3 ];then
+if [ *3* == $a ];then
   fun3
 fi
-if [ $a == 4 ];then
+if [ *4* == $a ];then
   fun4
 fi
-if [[ $a == 5 || -z $a ]];then
+if [ -z $a ];then
   fun1
   fun2
   fun3
