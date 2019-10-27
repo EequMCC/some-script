@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "export LC_ALL=en_US.UTF-8">>/etc/profile
+source /etc/profile
+apt-get update
+apt-get upgrade
+chattr -i /etc/udev/rules.d/70-persistent-net.rules
+rm /etc/udev/rules.d/*
+echo "auto ens3" >>/etc/network/interfaces
+/etc/init.d/networking restart
