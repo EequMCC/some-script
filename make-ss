@@ -1,16 +1,16 @@
 #!/bin/bash
 fun1(){
-  echo "export LC_ALL=en_US.UTF-8">>/etc/profile
-  source /etc/profile
-  apt-get update
-  apt-get upgrade
+  wget "https://raw.githubusercontent.com/EequMCC/shadowsocks/master/debian-install.sh" && chmod +x debian-install.sh && ./debian-install.sh
 }
+
 fun2(){
   wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/ssr.sh && chmod +x ssr.sh && bash ssr.sh
 }
+
 fun3(){
-  bash <(curl -s -L https://git.io/v2ray.sh)
+  wget https://raw.githubusercontent.com/EequMCC/V2ray/master/V2ray.sh && chmod +x V2ray.sh && ./V2ray.sh
 }
+
 fun4(){
   apt-get install ffmpeg
   wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/local/bin/youtube-dl
@@ -18,13 +18,8 @@ fun4(){
   wget --no-check-certificate https://raw.githubusercontent.com/EequMCC/some-script/master/yc
   chmod +x yc && mv yc /usr/bin
 }
-fun5(){
-  chattr -i /etc/udev/rules.d/70-persistent-net.rules
-  rm /etc/udev/rules.d/*
-  echo "auto ens3" >>/etc/network/interfaces
-  /etc/init.d/networking restart
-}
-echo "[1]Upgrade [2]ShadowsocksR [3]V2ray [4]Youtube-dl"
+
+echo "[1]Shadowsocks [2]ShadowsocksR [3]V2ray [4]Youtube-dl"
 read -p "Please Select(Default All):" a
 if [[ "$a" == *1* ]];then
   fun1
@@ -43,5 +38,4 @@ if [ -z $a ];then
   fun2
   fun3
   fun4
-  fun5
 fi
