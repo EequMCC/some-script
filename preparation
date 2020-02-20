@@ -2,6 +2,7 @@
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "export LC_ALL=en_US.UTF-8">>/etc/profile
 source /etc/profile
+wget && chmod +x wt && mv wt /usr/bin
 apt-get update
 apt-get upgrade
 chattr -i /etc/udev/rules.d/70-persistent-net.rules
